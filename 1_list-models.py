@@ -1,4 +1,8 @@
 import boto3
+import logging
+
+# デバッグログの設定
+boto3.set_stream_logger('boto3.resources', logging.DEBUG)
 
 # create Bedrock client
 bedrock = boto3.client("bedrock")

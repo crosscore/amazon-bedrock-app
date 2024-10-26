@@ -27,7 +27,7 @@ bedrock_runtime = boto3.client("bedrock-runtime")
 
 body = json.dumps({
     "anthropic_version": "bedrock-2023-05-31",
-    "max_tokens": 256,
+    "max_tokens": 64,
     "messages": [
         {
             "role": "user",
