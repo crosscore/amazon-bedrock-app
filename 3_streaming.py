@@ -1,8 +1,15 @@
 import boto3
 import json
+from dotenv import load_dotenv
+import os
 
-session = boto3.Session(profile_name="AdministratorAccess-207567758619")
-bedrock_runtime = session.client("bedrock-runtime", region_name="us-east-1")
+load_dotenv()
+AWS_PROFILE = os.getenv('AWS_PROFILE')
+AWS_REGION = os.getenv('AWS_REGION')
+BEDROCK_MODEL_ID = os.getenv('BEDROCK_MODEL_ID')
+
+session = boto3.Session(profile_name=AWS_PROFILE)
+bedrock_runtime = session.client("bedrock-runtime", region_name="AWS_REGION")
 
 body = {
     "anthropic_version": "bedrock-2023-05-31",
@@ -20,7 +27,7 @@ body = {
     ]
 }
 
-modelId = "anthropic.claude-3-5-sonnet-20240620-v1:0"
+modelId = "BEDROCK_MODEL_ID"
 
 try:
     # ストリーミングレスポンスを取得。 bodyは、EventStreamオブジェクト
@@ -43,7 +50,7 @@ try:
         'body': <botocore.eventstream.EventStream object at 0x106bb3890>
     }
     """
-    
+
     print("=== ストリーミング開始 ===")
     # EventStreamの各チャンクをループ処理
     for event in response.get('body'):

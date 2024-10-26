@@ -1,11 +1,18 @@
 import boto3
 import json
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+AWS_PROFILE = os.getenv('AWS_PROFILE')
+AWS_REGION = os.getenv('AWS_REGION')
+BEDROCK_MODEL_ID = os.getenv('BEDROCK_MODEL_ID')
 
 # create boto3 session
-session = boto3.Session(profile_name="AdministratorAccess-207567758619")
+session = boto3.Session(profile_name=AWS_PROFILE)
 
 # create Bedrock Runtime Client
-bedrock_runtime = session.client("bedrock-runtime", region_name="us-east-1")
+bedrock_runtime = session.client("bedrock-runtime", region_name="AWS_REGION")
 
 # difine request body
 body = {
@@ -25,7 +32,7 @@ body = {
     ]
 }
 
-modelId = "anthropic.claude-3-5-sonnet-20240620-v1:0"
+modelId = "BEDROCK_MODEL_ID"
 
 try:
     # invoke_model

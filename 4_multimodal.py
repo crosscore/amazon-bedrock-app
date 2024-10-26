@@ -1,9 +1,16 @@
 import boto3
 import json
 import base64
+from dotenv import load_dotenv
+import os
 
-session = boto3.Session(profile_name="AdministratorAccess-207567758619")
-bedrock_runtime = session.client("bedrock-runtime", region_name="us-east-1")
+load_dotenv()
+AWS_PROFILE = os.getenv('AWS_PROFILE')
+AWS_REGION = os.getenv('AWS_REGION')
+BEDROCK_MODEL_ID = os.getenv('BEDROCK_MODEL_ID')
+
+session = boto3.Session(profile_name=AWS_PROFILE)
+bedrock_runtime = session.client("bedrock-runtime", region_name=AWS_REGION)
 
 # 画像の読み込み
 with open("./img/aws-bedrock.png", "rb") as f:
@@ -33,12 +40,10 @@ body = {
     ]
 }
 
-modelId = "anthropic.claude-3-5-sonnet-20240620-v1:0"
-
 try:
     response = bedrock_runtime.invoke_model_with_response_stream(
         body=json.dumps(body),
-        modelId=modelId,
+        modelId = BEDROCK_MODEL_ID,
         accept="application/json",
         contentType="application/json"
     )
