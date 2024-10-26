@@ -12,7 +12,7 @@ BEDROCK_MODEL_ID = os.getenv('BEDROCK_MODEL_ID')
 session = boto3.Session(profile_name=AWS_PROFILE)
 
 # create Bedrock Runtime Client
-bedrock_runtime = session.client("bedrock-runtime", region_name="AWS_REGION")
+bedrock_runtime = session.client("bedrock-runtime", region_name=AWS_REGION)
 
 # difine request body
 body = {
@@ -32,13 +32,11 @@ body = {
     ]
 }
 
-modelId = "BEDROCK_MODEL_ID"
-
 try:
     # invoke_model
     response = bedrock_runtime.invoke_model(
         body=json.dumps(body),
-        modelId=modelId,
+        modelId=BEDROCK_MODEL_ID,
         accept="application/json",
         contentType="application/json"
     )
