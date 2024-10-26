@@ -1,16 +1,17 @@
 import boto3
 import json
 
-# 特定のプロファイルを使用してセッションを作成
+# create boto3 session
 session = boto3.Session(profile_name="AdministratorAccess-207567758619")
 
-# Bedrock Runtimeクライアントを作成
+# create Bedrock Runtime Client
 bedrock_runtime = session.client("bedrock-runtime", region_name="us-east-1")
 
-# リクエストボディの定義
+# difine request body
 body = {
     "anthropic_version": "bedrock-2023-05-31",
     "max_tokens": 128,
+    #"system": "You are a helpful assistant.",
     "messages": [
         {
             "role": "user",
@@ -27,7 +28,7 @@ body = {
 modelId = "anthropic.claude-3-5-sonnet-20240620-v1:0"
 
 try:
-    # モデルを呼び出す
+    # invoke_model
     response = bedrock_runtime.invoke_model(
         body=json.dumps(body),
         modelId=modelId,
@@ -35,10 +36,9 @@ try:
         contentType="application/json"
     )
 
-    # レスポンスの処理
     response_body = json.loads(response['body'].read())
     answer = response_body["content"][0]["text"]
     print(answer)
 
 except Exception as e:
-    print(f"エラーが発生しました: {e}")
+    print(f"An error has occurred: {e}")
