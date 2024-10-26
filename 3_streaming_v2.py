@@ -13,14 +13,14 @@ bedrock_runtime = session.client("bedrock-runtime", region_name=AWS_REGION)
 
 body = {
     "anthropic_version": "bedrock-2023-05-31",
-    "max_tokens": 512,
+    "max_tokens": 256,
     "messages": [
         {
             "role": "user",
             "content": [
                 {
                     "type": "text",
-                    "text": "Amazon Bedrockという名称の由来を300文字以内で教えて"
+                    "text": "Amazon Bedrockという名称の由来を200文字以内で教えて"
                 }
             ]
         }

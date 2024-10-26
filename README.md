@@ -1,6 +1,9 @@
 # aws-bedrock-app
 
 ```
+# activate venv
+source venv/bin/activate
+
 # configure sso settings
 aws configure sso
 
