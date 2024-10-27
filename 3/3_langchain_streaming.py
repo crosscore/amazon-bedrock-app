@@ -9,6 +9,7 @@ BEDROCK_MODEL_ID = os.getenv('BEDROCK_MODEL_ID')
 chat = ChatBedrock(
     model_id=BEDROCK_MODEL_ID,
     model_kwargs={"max_tokens": 128},
+    streaming=True
 )
 
 messages = [
@@ -17,8 +18,8 @@ messages = [
 ]
 
 try:
-    response = chat.invoke(messages)
-    print(response.content)
+    for chunk in chat.stream(messages):
+        print(chunk.content, end="", flush=True)
 
 except Exception as e:
     print(f"エラーが発生しました: {e}")
