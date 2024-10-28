@@ -5,6 +5,12 @@ aws dynamodb create-table \
     --attribute-definitions AttributeName=Sessionid,AttributeType=S \
     --key-schema AttributeName=Sessionid,KeyType=HASH \
     --billing-mode PAY_PER_REQUEST \
-    --profile {AWS_PROFILE}
+    --profile ${AWS_PROFILE}
 ```
-注意：{AWS_PROFILE}を置き換える必要があります。
+
+## AWS CLIによるDynamoDBの全データ確認
+```
+aws dynamodb scan \
+    --table-name BedrockChatSessionTable \
+    --profile ${AWS_PROFILE}
+```

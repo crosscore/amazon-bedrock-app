@@ -22,7 +22,7 @@ if "history" not in st.session_state:
     st.session_state.history = DynamoDBChatMessageHistory(
         table_name="BedrockChatSessionTable",
         session_id=st.session_state.session_id,
-        primary_key_name="Sessionid"  # パーティションキー名を正しく設定
+        primary_key_name="Sessionid"
     )
 
 if "chain" not in st.session_state:
@@ -46,7 +46,7 @@ st.sidebar.text(f"Session ID: {st.session_state.session_id}")
 # 履歴をクリアするボタン
 if st.button("Clear History"):
     st.session_state.history.clear()
-    st.experimental_rerun()
+    st.rerun()  # experimental_rerun() から rerun() に変更
 
 # チャットメッセージの表示
 try:
