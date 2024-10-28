@@ -21,7 +21,8 @@ if "session_id" not in st.session_state:
 if "history" not in st.session_state:
     st.session_state.history = DynamoDBChatMessageHistory(
         table_name="BedrockChatSessionTable",
-        session_id=st.session_state.session_id
+        session_id=st.session_state.session_id,
+        primary_key_name="Sessionid"  # パーティションキー名を正しく設定
     )
 
 if "chain" not in st.session_state:
