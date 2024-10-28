@@ -1,0 +1,171 @@
+{
+    "Items": [
+        {
+            "Sessionid": {
+                "S": "c949dd52-46dc-42e5-957a-a6ba54333a61"
+            },
+            "History": {
+                "L": [
+                    {
+                        "M": {
+                            "type": {
+                                "S": "human"
+                            },
+                            "data": {
+                                "M": {
+                                    "additional_kwargs": {
+                                        "M": {}
+                                    },
+                                    "name": {
+                                        "NULL": true
+                                    },
+                                    "response_metadata": {
+                                        "M": {}
+                                    },
+                                    "id": {
+                                        "NULL": true
+                                    },
+                                    "type": {
+                                        "S": "human"
+                                    },
+                                    "content": {
+                                        "S": "私の名前を知っていますか？"
+                                    },
+                                    "example": {
+                                        "BOOL": false
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "type": {
+                                "S": "ai"
+                            },
+                            "data": {
+                                "M": {
+                                    "usage_metadata": {
+                                        "NULL": true
+                                    },
+                                    "additional_kwargs": {
+                                        "M": {}
+                                    },
+                                    "name": {
+                                        "NULL": true
+                                    },
+                                    "response_metadata": {
+                                        "M": {}
+                                    },
+                                    "tool_calls": {
+                                        "L": []
+                                    },
+                                    "id": {
+                                        "NULL": true
+                                    },
+                                    "type": {
+                                        "S": "ai"
+                                    },
+                                    "content": {
+                                        "S": "申し訳ありませんが、私はあなたの名前を知りません。私は人工知能のアシスタントで、個人情報を保存したり、以前の会話を覚えたりすることはできません。各会話は新しく始まります。もしお名前をお聞きしたい場合は、ご自身でお教えいただく必要があります。"
+                                    },
+                                    "invalid_tool_calls": {
+                                        "L": []
+                                    },
+                                    "example": {
+                                        "BOOL": false
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Sessionid": {
+                "S": "03cab240-c807-4d4b-b50d-db906c13e6de"
+            },
+            "History": {
+                "L": [
+                    {
+                        "M": {
+                            "type": {
+                                "S": "human"
+                            },
+                            "data": {
+                                "M": {
+                                    "additional_kwargs": {
+                                        "M": {}
+                                    },
+                                    "name": {
+                                        "NULL": true
+                                    },
+                                    "response_metadata": {
+                                        "M": {}
+                                    },
+                                    "id": {
+                                        "NULL": true
+                                    },
+                                    "type": {
+                                        "S": "human"
+                                    },
+                                    "content": {
+                                        "S": "私の名前はyuuです。"
+                                    },
+                                    "example": {
+                                        "BOOL": false
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "type": {
+                                "S": "ai"
+                            },
+                            "data": {
+                                "M": {
+                                    "usage_metadata": {
+                                        "NULL": true
+                                    },
+                                    "additional_kwargs": {
+                                        "M": {}
+                                    },
+                                    "name": {
+                                        "NULL": true
+                                    },
+                                    "response_metadata": {
+                                        "M": {}
+                                    },
+                                    "tool_calls": {
+                                        "L": []
+                                    },
+                                    "id": {
+                                        "NULL": true
+                                    },
+                                    "type": {
+                                        "S": "ai"
+                                    },
+                                    "content": {
+                                        "S": "はい、分かりました。お名前がyuuさんということですね。二度繰り返されていましたが、一度で十分伝わりましたよ。yuuさん、何かお手伝いできることはありますか？"
+                                    },
+                                    "invalid_tool_calls": {
+                                        "L": []
+                                    },
+                                    "example": {
+                                        "BOOL": false
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "Count": 2,
+    "ScannedCount": 2,
+    "ConsumedCapacity": null
+}
