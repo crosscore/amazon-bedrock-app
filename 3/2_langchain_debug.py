@@ -9,7 +9,7 @@ BEDROCK_MODEL_ID = os.getenv('BEDROCK_MODEL_ID')
 
 set_debug(True)
 
-chat = ChatBedrock(
+llm = ChatBedrock(
     model_id=BEDROCK_MODEL_ID,
     model_kwargs={"max_tokens": 256},
     streaming=True
@@ -21,7 +21,7 @@ messages = [
 ]
 
 try:
-    for chunk in chat.stream(messages):
+    for chunk in llm.stream(messages):
         print(chunk.content, end="", flush=True)
 
 except Exception as e:

@@ -7,7 +7,7 @@ import os
 load_dotenv()
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
-chat = ChatOpenAI(
+llm = ChatOpenAI(
     model="gpt-4o-mini",
     api_key=OPENAI_API_KEY,
     max_tokens=256,
@@ -20,7 +20,7 @@ messages = [
 ]
 
 try:
-    for chunk in chat.stream(messages):
+    for chunk in llm.stream(messages):
         print(chunk.content, end="", flush=True)
 
 except Exception as e:

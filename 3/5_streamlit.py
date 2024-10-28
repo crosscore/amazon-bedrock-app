@@ -9,7 +9,7 @@ BEDROCK_MODEL_ID = os.getenv("BEDROCK_MODEL_ID")
 
 st.title("Bedrock Chatbot")
 
-chat = ChatBedrock(
+llm = ChatBedrock(
     model_id=BEDROCK_MODEL_ID,
     model_kwargs={"max_tokens": 1024},
     streaming=True,
@@ -24,5 +24,5 @@ if prompt := st.chat_input("質問を入力してください。"):
     with st.chat_message("user"):
         st.markdown(prompt)
     with st.chat_message("assistant"):
-        response = st.write_stream(chat.stream(messages))
+        response = st.write_stream(llm.stream(messages))
     messages.append(response)

@@ -6,7 +6,7 @@ import os
 load_dotenv()
 BEDROCK_MODEL_ID = os.getenv('BEDROCK_MODEL_ID')
 
-chat = ChatBedrock(
+llm = ChatBedrock(
     model_id=BEDROCK_MODEL_ID,
     model_kwargs={"max_tokens": 128},
 )
@@ -17,7 +17,7 @@ messages = [
 ]
 
 try:
-    response = chat.invoke(messages)
+    response = llm.invoke(messages)
     print(response.content)
 
 except Exception as e:
