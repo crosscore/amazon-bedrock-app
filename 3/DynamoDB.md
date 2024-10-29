@@ -14,3 +14,11 @@ aws dynamodb scan \
     --table-name BedrockChatSessionTable \
     --profile ${AWS_PROFILE}
 ```
+## jqを組み合わせて整形
+```
+aws dynamodb scan \
+    --table-name BedrockChatSessionTable \
+    --profile ${AWS_PROFILE} \
+    | jq -r '.Items[] | [.Sessionid.S, .ExpirationTime.N] | @tsv' \
+    | column -t
+```
