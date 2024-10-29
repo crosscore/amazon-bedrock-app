@@ -14,8 +14,8 @@ aws configure list-profiles
 cat ~/.aws/config | grep profile
 
 # login to sse session
-aws sso login --profile "CLI profile name"
+aws sso login --profile $AWS_PROFILE
 
 # check credentials
-aws sts get-caller-identity --profile "CLI profile name"
+aws sts get-caller-identity --profile $AWS_PROFILE
 ```
